@@ -1,10 +1,10 @@
+import os
 import streamlit as st
-from google import genai
+import google.generativeai as genai
 
-# Ponemos la llave directamente aquí para que no haya pierde
-api_key=os.environ.get("GEMINI_API_KEY")
 
-client = genai.Client(api_key=llave)
+
+genai.configure(api_key=os.environ.get("GEMINI_API_KEY")
 
 st.set_page_config(page_title="IA de Emociones", page_icon="🌈")
 st.title("🌈 Soy Prof. Jhonny Chipana Choque: aprendamos juntos")
@@ -17,10 +17,8 @@ if st.button("Enviar a la IA"):
         with st.spinner("Pensando..."):
             try:
                 # Usamos el modelo directo
-                response = client.models.generate_content(
-                    model="gemini-2.0-flash", 
-                    contents=usuario_input
-                )
+               model = genai.GenerativeModel("gemini-2.0-flash")
+               response = model.generate_content(usuario_input)
                 st.success("Un mensaje para ti:")
                 st.write(response.text)
             except Exception as e:
