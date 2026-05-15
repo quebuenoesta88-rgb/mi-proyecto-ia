@@ -6,7 +6,7 @@ try:
     llave = st.secrets["GOOGLE_API_KEY"]
 except:
     # Si falla, usamos la que pusiste antes (solo por si acaso)
-    llave = "AIzaSyD-4k8hI71raLjXBDieUNxTjk rxhFp85qU"
+    llave = "AIzaSyD-4k8hI71raLjXBDieUNxTjkrxhFp85qU"
 
 client = genai.Client(api_key=llave)
 
