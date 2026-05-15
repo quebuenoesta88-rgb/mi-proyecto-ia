@@ -1,11 +1,11 @@
 import streamlit as st
 from google import genai
+import os
 
-# Intentamos sacar la llave de los Secrets de Streamlit
+# Configuración de la llave
 try:
     llave = st.secrets["GOOGLE_API_KEY"]
 except:
-    # Si falla, usamos la que pusiste antes (solo por si acaso)
     llave = "AIzaSyD-4k8hI71raLjXBDieUNxTjkrxhFp85qU"
 
 client = genai.Client(api_key=llave)
@@ -20,7 +20,7 @@ if st.button("Enviar a la IA"):
     if usuario_input:
         with st.spinner("Pensando..."):
             try:
-                # Usamos el modelo más estable con la ruta completa
+                # MODELO CORREGIDO: gemini-1.5-flash (sin el models/ delante)
                 response = client.models.generate_content(
                     model="gemini-1.5-flash", 
                     contents=usuario_input
@@ -28,4 +28,4 @@ if st.button("Enviar a la IA"):
                 st.success("Un mensaje para ti:")
                 st.write(response.text)
             except Exception as e:
-                st.error(f"Error de conexión: {e}")
+                st.error("Error de conexión. Por favor, revisa la llave en Secrets.")
