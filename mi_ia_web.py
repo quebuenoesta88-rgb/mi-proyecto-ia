@@ -2,7 +2,7 @@ import streamlit as st
 from google import genai
 
 # Ponemos la llave directamente aquí para que no haya pierde
-llave = "AIzaSyD-4k8hI71raLjXBDieUNxTjkrxhFp85qU"
+llave = "AIzaSyB_hVxdR6sOOUCeR6XFQwcf4HIX0Pw1Idk"
 
 client = genai.Client(api_key=llave)
 
