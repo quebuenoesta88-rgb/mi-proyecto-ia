@@ -18,7 +18,7 @@ if st.button("Enviar a la IA"):
         with st.spinner("Pensando un consejo para ti..."):
             instruccion = f"Responde de forma cálida, breve y empática para un estudiante sobre esto: {usuario_input}"
             response = client.models.generate_content(
-                model="gemini-3-flash-preview", 
+                model="gemini-1.5-flash", 
                 contents=instruccion
             )
             st.success("Un mensaje para ti:")
