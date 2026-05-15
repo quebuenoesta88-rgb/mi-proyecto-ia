@@ -18,7 +18,7 @@ if st.button("Enviar a la IA"):
             try:
                 # Usamos el modelo directo
                 response = client.models.generate_content(
-                    model="gemini-1.5-flash", 
+                    model="gemini-2.0-flash", 
                     contents=usuario_input
                 )
                 st.success("Un mensaje para ti:")
